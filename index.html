@@ -1,6 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0077b6, #38b000); /* blue + green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Box */
+form{
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+ h2{
+    text-align: center;
+    color: #0077b6;
+}
+
+/* Labels */
+label{
+    font-weight: bold;
+    color: #333;
+}
+
+/* Inputs */
+input, select, textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+/* Focus Effect */
+input:focus, select:focus, textarea:focus{
+    outline: none;
+    border: 2px solid #38b000;
+    box-shadow: 0 0 10px rgba(56,176,0,0.5);
+}
+
+/* Button */
+button{
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #0077b6, #38b000);
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,119,182,0.6);
+}
+    </style>
     <title>Registration Form</title>
 </head>
 
