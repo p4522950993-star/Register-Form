@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Registration</title>
+<title>Smart Registration</title>
 
 <style>
 * {
@@ -18,146 +18,192 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #00c6ff, #00ff9d); /* BLUE + GREEN */
-}
-
-/* Container */
-.container {
-  width: 350px;
-  padding: 25px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  text-align: center;
-}
-
-/* Dark Mode Button */
-.toggle-btn {
   background: linear-gradient(135deg, #00c6ff, #00ff9d);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 25px;
-  width: 100%;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+h2 {
+  text-align: center;
   margin-bottom: 15px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00c6ff, #00ff9d);
+  transition: 0.3s;
+}
+
+.input-box {
+  margin: 10px 0;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+  
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
   cursor: pointer;
 }
 
-/* Title */
-h2 {
-  margin-bottom: 20px;
-  color: #008f7a;
+.submit {
+  background: linear-gradient(45deg, #00c6ff, #00ff9d);
 }
 
-/* Input Fields */
-.input-box {
-  position: relative;
-  margin-bottom: 15px;
+.reset {
+  background: linear-gradient(45deg, #00ff9d, #00c6ff);
+  color: #000;
+}
+  
+.dark {
+  background: #222;
+  color: #fff;
 }
 
-.input-box input {
+.dark input,
+.dark select {
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark-mode-btn {
+  margin-top: 15px;
   width: 100%;
   padding: 12px;
   border-radius: 10px;
   border: none;
-  outline: none;
-  background: #e6fffb;
-  font-size: 14px;
-}
-
-/* Eye Button */
-.input-box span {
-  position: absolute;
-  right: 10px;
-  top: 12px;
+  background: linear-gradient(45deg, #1e3c72, #2a5298);
+  color: #fff;
   cursor: pointer;
-}
-
-/* Buttons */
-.btn-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.btn {
-  width: 48%;
-  padding: 12px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* Register Button */
-.register {
-  background: linear-gradient(135deg, #00c6ff, #00ff9d);
-  color: white;
-}
-
-/* Reset Button */
-.reset {
-  background: linear-gradient(135deg, #008f7a, #00c6ff);
-  color: white;
-}
-
-/* DARK MODE */
-.dark {
-  background: #001f2f;
-}
-
-.dark .container {
-  background: #012a36;
-  color: white;
-}
-
-.dark input {
-  background: #014d4d;
-  color: white;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="container">
-  <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+<div class="container" id="container">
 
-  <h2>✨ Premium Registration</h2>
+<h2>🚀 Smart Registration</h2>
 
-  <div class="input-box">
-    <input type="text" placeholder="Full Name">
-  </div>
+<div class="progress-bar">
+  <div class="progress" id="progress"></div>
+</div>
 
-  <div class="input-box">
-    <input type="email" placeholder="Email">
-  </div>
+<form id="form">
 
-  <div class="input-box">
-    <input type="password" id="password" placeholder="Password">
-    <span onclick="togglePassword()">👁️</span>
-  </div>
+<div class="input-box">
+  <input type="text" placeholder="Full Name *" id="name" maxlength="30">
+</div>
 
-  <div class="input-box">
-    <input type="text" placeholder="Phone Number">
-  </div>
+<div class="input-box">
+  <input type="email" placeholder="Email *" id="email">
+</div>
 
-  <div class="btn-group">
-    <button class="btn register">🚀 Register</button>
-    <button class="btn reset">🔄 Reset</button>
-  </div>
+<div class="input-box">
+  <input type="tel" placeholder="Phone *" id="phone">
+</div>
+
+<div class="input-box">
+  <select id="country">
+    <option value="">Country *</option>
+    <option>India</option>
+    <option>USA</option>
+    <option>UK</option>
+  </select>
+</div>
+
+<div class="input-box">
+  <input type="password" placeholder="Password *" id="password">
+</div>
+
+<div class="input-box">
+  <input type="password" placeholder="Confirm Password *" id="confirm">
+</div>
+
+<div class="input-box">
+  <input type="checkbox" id="terms"> Accept Terms & Conditions
+</div>
+
+<div class="buttons">
+  <button type="submit" class="submit">🚀 Submit</button>
+  <button type="reset" class="reset">♻ Reset</button>
+</div>
+
+</form>
+
+<button class="dark-mode-btn" onclick="toggleDark()">🌙 Dark Mode</button>
+
 </div>
 
 <script>
-function togglePassword() {
-  let pass = document.getElementById("password");
-  pass.type = pass.type === "password" ? "text" : "password";
+const inputs = document.querySelectorAll("input, select");
+const progress = document.getElementById("progress");
+
+inputs.forEach(input => {
+  input.addEventListener("input", updateProgress);
+});
+
+function updateProgress() {
+  let filled = 0;
+
+  inputs.forEach(input => {
+    if (
+      (input.type === "checkbox" && input.checked) ||
+      (input.type !== "checkbox" && input.value !== "")
+    ) {
+      filled++;
+    }
+  });
+
+  let percent = (filled / inputs.length) * 100;
+  progress.style.width = percent + "%";
 }
 
-function toggleMode() {
-  document.body.classList.toggle("dark");
+function toggleDark() {
+  document.getElementById("container").classList.toggle("dark");
 }
+
+document.getElementById("form").addEventListener("submit", function(e) {
+  let pass = document.getElementById("password").value;
+  let confirm = document.getElementById("confirm").value;
+
+  if (pass !== confirm) {
+    alert("Passwords do not match!");
+    e.preventDefault();
+  }
+});
 </script>
 
 </body>
