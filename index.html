@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Registration</title>
+<title>Modern Registration Form</title>
 
 <style>
 * {
@@ -15,155 +15,180 @@
 
 body {
   height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #00c6ff, #00ff9d);
 }
 
+/* Container */
 .container {
-  width: 90%;
-  max-width: 400px;
-  background: #f4f4f4;
-  padding: 25px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  width: 900px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-h2 {
+.left {
+  width: 40%;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left h2 {
+  font-size: 28px;
   margin-bottom: 10px;
 }
 
-.divider {
-  height: 6px;
-  width: 100%;
-  background: #ccc;
-  border-radius: 10px;
-  margin: 10px 0 20px;
-}
-
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  outline: none;
+.left p {
   font-size: 14px;
+  opacity: 0.9;
 }
 
-.terms {
+/* Right Side */
+.right {
+  width: 60%;
+  padding: 40px;
+}
+
+.right h2 {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus,
+.input-box select:focus {
+  border-color: #667eea;
+}
+
+.checkbox {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin: 15px 0;
-  white-space: nowrap;
+  margin-bottom: 15px;
 }
 
-.terms input {
-  width: auto;
-}
-
-.buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+.checkbox input {
+  margin-right: 8px;
 }
 
 button {
-  flex: 1;
+  width: 100%;
   padding: 12px;
   border: none;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
-  font-size: 15px;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.submit {
-  background: linear-gradient(135deg, #00c6ff, #00ff9d);
+button:hover {
+  opacity: 0.9;
 }
 
-.reset {
-  background: linear-gradient(135deg, #00ff9d, #00c6ff);
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+  }
+  .left, .right {
+    width: 100%;
+  }
 }
-
-.dark-btn {
-  width: 100%;
-  margin-top: 15px;
-  background: #2d4373;
-}
-
-.dark {
-  background: #1e1e1e;
-  color: white;
-}
-
-.dark input, .dark select {
-  background: #333;
-  color: white;
-  border: 1px solid #555;
-}
-
-.dark .container {
-  background: #2a2a2a;
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <h2>🚀 Smart Registration</h2>
-  <div class="divider"></div>
 
-  <form id="form">
-    <input type="text" placeholder="Full Name *" required>
-    <input type="email" placeholder="Email *" required>
-    <input type="tel" placeholder="Phone *" required>
+  <!-- Left Panel -->
+  <div class="left">
+    <h2>Welcome!</h2>
+    <p>Create your account and start your journey with us.</p>
+  </div>
 
-    <select required>
-      <option value="">Country *</option>
-      <option>India</option>
-      <option>USA</option>
-      <option>UK</option>
-    </select>
+  <!-- Right Panel -->
+  <div class="right">
+    <h2>Register</h2>
 
-    <input type="password" placeholder="Password *" required>
-    <input type="password" placeholder="Confirm Password *" required>
+    <form onsubmit="return validateForm()">
 
-    <!-- FIXED TERMS -->
-    <div class="terms">
-      <input type="checkbox" id="terms" required>
-      <label for="terms">Accept Terms & Conditions</label>
-    </div>
+      <div class="input-box">
+        <input type="text" id="name" placeholder="Full Name" required>
+      </div>
 
-    <div class="buttons">
-      <button type="submit" class="submit">🚀 Submit</button>
-      <button type="reset" class="reset">♻ Reset</button>
-    </div>
-  </form>
+      <div class="input-box">
+        <input type="email" id="email" placeholder="Email Address" required>
+      </div>
 
-  <button class="dark-btn" onclick="toggleDark()">🌙 Dark Mode</button>
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <div class="input-box">
+        <input type="tel" placeholder="Phone Number" required>
+      </div>
+
+      <div class="input-box">
+        <select required>
+          <option value="">Select Course</option>
+          <option>Frontend</option>
+          <option>Backend</option>
+          <option>Full Stack</option>
+        </select>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" id="terms">
+        <label for="terms">I accept Terms & Conditions</label>
+      </div>
+
+      <button type="submit">Register</button>
+
+    </form>
+  </div>
+
 </div>
 
 <script>
-function toggleDark() {
-  document.body.classList.toggle("dark");
-}
+function validateForm() {
+  let password = document.getElementById("password").value;
+  let terms = document.getElementById("terms").checked;
 
-document.getElementById("form").addEventListener("submit", function(e) {
-  let pass = document.querySelectorAll("input[type='password']")[0].value;
-  let confirm = document.querySelectorAll("input[type='password']")[1].value;
-
-  if(pass !== confirm){
-    alert("Passwords do not match!");
-    e.preventDefault();
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters");
+    return false;
   }
-});
+
+  if (!terms) {
+    alert("Please accept Terms & Conditions");
+    return false;
+  }
+
+  alert("Registration Successful!");
+  return true;
+}
 </script>
 
 </body>
